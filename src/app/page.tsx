@@ -7,22 +7,16 @@ import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import {
   GitHubIcon,
-  InstagramIcon,
   LinkedInIcon,
-  XIcon,
 } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
+import logoOutlandish from '@/images/logos/outlandish.png'
+import logoDisney from '@/images/logos/disney.png'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
-import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
-import { formatDate } from '@/lib/formatDate'
-import {getTranslations} from 'next-intl/server';
+import image4 from '@/images/photos/image-5.jpg'
+import image5 from '@/images/photos/image-4.jpg'
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -83,21 +77,6 @@ function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function Article({ article }: { article: ArticleWithSlug }) {
-  return (
-    <Card as="article">
-      <Card.Title href={`/articles/${article.slug}`}>
-        {article.title}
-      </Card.Title>
-      <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
-      </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
-    </Card>
-  )
-}
-
 function SocialLink({
   icon: Icon,
   ...props
@@ -108,6 +87,30 @@ function SocialLink({
     <Link className="group -m-1 p-1" {...props}>
       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
+  )
+}
+
+function SocialLinkSideBar({
+                      className,
+                      href,
+                      children,
+                      icon: Icon,
+                    }: {
+  className?: string
+  href: string
+  icon: React.ComponentType<{ className?: string }>
+  children: React.ReactNode
+}) {
+  return (
+      <li className={clsx(className, 'flex')}>
+        <Link
+            href={href}
+            className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+        >
+          <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+          <span className="ml-4">{children}</span>
+        </Link>
+      </li>
   )
 }
 
@@ -198,26 +201,19 @@ function Resume() {
       },
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      company: 'Outlandish',
+      title: 'Senior Web Developer / Owner',
+      logo: logoOutlandish,
+      start: '2012',
+      end: '2024',
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
-    },
-    {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
+      company: 'Disney',
+      title: 'Customer Support Representative',
+      logo: logoDisney,
       start: '2008',
-      end: '2011',
-    },
+      end: '2012',
+    }
   ]
 
   return (
@@ -267,18 +263,23 @@ function Photos() {
 }
 
 export default async function Home() {
-  let articles = (await getAllArticles()).slice(0, 4)
-  const t = await getTranslations('HomePage');
 
   return (
     <>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            {t('title')}
+            Web Developer, Father and Garden Geek
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            {t('content')}
+            I&#39m Matt, and I&#39ve been making interesting things for exciting
+            people since 2012. In 2024 I became a dad for the first time, and
+            took a break in my career to explore this whole new part of my life.
+          </p>
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            Now in 2025, I&#39m excited to get back into two things: building great
+            new things in PHP, Python and JavaScript, and getting back out into
+            my no-dig vegetable garden and sharing it with the world.
           </p>
           <div className="mt-6 flex gap-6">
             {/*<SocialLink href="#" aria-label="Follow on X" icon={XIcon} />*/}
@@ -301,19 +302,68 @@ export default async function Home() {
         </div>
       </Container>
       <Photos />
-      <Container className="mt-24 md:mt-28">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
+      <Container className="mt-16 sm:mt-32">
+        <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+          <div className="lg:order-first lg:row-span-2">
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"></h1>
+            <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+              <p>
+                I’ve loved making things for as long as I can remember, and
+                wrote my first program when I was 6 years old, just two weeks
+                after my mom brought home the brand new Macintosh LC 550 that I
+                taught myself to type on.
+              </p>
+              <p>
+                The only thing I loved more than computers as a kid was space.
+                When I was 8, I climbed the 40-foot oak tree at the back of our
+                yard while wearing my older sister’s motorcycle helmet, counted
+                down from three, and jumped — hoping the tree was tall enough
+                that with just a bit of momentum I’d be able to get to orbit.
+              </p>
+              <p>
+                I spent the next few summers indoors working on a rocket design,
+                while I recovered from the multiple surgeries it took to fix my
+                badly broken legs. It took nine iterations, but when I was 15 I
+                sent my dad’s Blackberry into orbit and was able to transmit a
+                photo back down to our family computer from space.
+              </p>
+              <p>
+                Today, I’m the founder of Planetaria, where we’re working on
+                civilian space suits and manned shuttle kits you can assemble at
+                home so that the next generation of kids really <em>can</em>{' '}
+                make it to orbit — from the comfort of their own backyards.
+              </p>
+            </div>
           </div>
-          <div className="space-y-10 lg:pl-16 xl:pl-24">
-            {/*<Newsletter />*/}
+          <div className="space-y-7 lg:pl-20">
             <Resume />
+            <ul role="list">
+              <SocialLinkSideBar
+                href="https://github.com/mattKendon"
+                icon={GitHubIcon}
+                className="mt-4"
+              >
+                Follow on GitHub
+              </SocialLinkSideBar>
+              <SocialLinkSideBar
+                href="https://www.linkedin.com/in/matthew-k-9a8a8553/"
+                icon={LinkedInIcon}
+                className="mt-4"
+              >
+                Follow on LinkedIn
+              </SocialLinkSideBar>
+              <SocialLinkSideBar
+                href="mailto:mkendon@gmail.com"
+                icon={MailIcon}
+                className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+              >
+                mkendon@gmail.com
+              </SocialLinkSideBar>
+            </ul>
           </div>
         </div>
       </Container>
+
     </>
   )
 }
