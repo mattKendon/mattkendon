@@ -242,22 +242,16 @@ export default async function Home() {
             Web Developer, Father and Garden Geek
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I&#39m Matt, and I&#39ve been making interesting things for exciting
+            I&apos;m Matt, and I&apos;ve been making interesting things for exciting
             people since 2012. In 2024 I became a dad for the first time, and
             took a break in my career to explore this whole new part of my life.
           </p>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Now in 2025, I&#39m excited to get back into two things: building great
+            Now in 2025, I&apos;m excited to get back into two things: building great
             new things in PHP, Python and JavaScript, and getting back out into
             my no-dig vegetable garden and sharing it with the world.
           </p>
           <div className="mt-6 flex gap-6">
-            {/*<SocialLink href="#" aria-label="Follow on X" icon={XIcon} />*/}
-            {/*<SocialLink*/}
-            {/*  href="#"*/}
-            {/*  aria-label="Follow on Instagram"*/}
-            {/*  icon={InstagramIcon}*/}
-            {/*/>*/}
             <SocialLink
               href="https://github.com/mattKendon"
               aria-label="Follow on GitHub"
@@ -278,10 +272,7 @@ export default async function Home() {
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"></h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                I’ve loved making things for as long as I can remember, and
-                wrote my first program when I was 6 years old, just two weeks
-                after my mom brought home the brand new Macintosh LC 550 that I
-                taught myself to type on.
+
               </p>
               <p>
                 The only thing I loved more than computers as a kid was space.

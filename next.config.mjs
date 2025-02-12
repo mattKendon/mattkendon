@@ -10,6 +10,7 @@ const nextConfig = {
       '/articles/*': ['./src/app/articles/**/*.mdx'],
     },
   },
+  output: "standalone",
 }
 
 const withMDX = nextMDX({
