@@ -10,7 +10,6 @@ import {
 } from '@/components/SocialIcons'
 import logoOutlandish from '@/images/logos/outlandish.png'
 import logoDisney from '@/images/logos/disney.png'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
