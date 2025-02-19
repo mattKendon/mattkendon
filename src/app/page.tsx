@@ -197,7 +197,7 @@ function Resume() {
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button href="/resume.pdf" variant="secondary" className="group mt-6 w-full">
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
@@ -272,27 +272,22 @@ export default async function Home() {
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"></h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-
+                I got my first computer when I was 7 and was instantly hooked.
+                After messing about with computers and electronics for most of my
+                childhood, in 2010 I decided I wanted to make computers my career.
+                I started learning PHP and other web technologies in the evenings
+                while I worked at Disney. In 2012 I started my first web developer
+                role at Outlandish, and digital agency based in London.
               </p>
               <p>
-                The only thing I loved more than computers as a kid was space.
-                When I was 8, I climbed the 40-foot oak tree at the back of our
-                yard while wearing my older sister’s motorcycle helmet, counted
-                down from three, and jumped — hoping the tree was tall enough
-                that with just a bit of momentum I’d be able to get to orbit.
-              </p>
-              <p>
-                I spent the next few summers indoors working on a rocket design,
-                while I recovered from the multiple surgeries it took to fix my
-                badly broken legs. It took nine iterations, but when I was 15 I
-                sent my dad’s Blackberry into orbit and was able to transmit a
-                photo back down to our family computer from space.
-              </p>
-              <p>
-                Today, I’m the founder of Planetaria, where we’re working on
-                civilian space suits and manned shuttle kits you can assemble at
-                home so that the next generation of kids really <em>can</em>{' '}
-                make it to orbit — from the comfort of their own backyards.
+                At Outlandish I joined a small team building websites for a variety of
+                different clients. I learnt how to collaborate on web projects, using Git
+                to manage code changes, and Youtrack to manage tasks and sprints. As a
+                small development agency, I had many opportunities to work on the many
+                varied parts of project work: from requirement gathering meetings with
+                clients, to running in-person user testing with members of the public; from
+                designing complicated database structures, to provisioning cloud servers
+                for a deployment.
               </p>
             </div>
           </div>
